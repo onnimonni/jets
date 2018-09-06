@@ -30,11 +30,15 @@ class Jets::Controller
 
       Jets.logger.info "base controller resp[\"isBase64Encoded\"]: #{resp["isBase64Encoded"].inspect}"
       Jets.logger.info "base controller resp: #{resp.inspect}"
-      if resp["isBase64Encoded"]
-        resp["body"]
-      else
-        resp
-      end
+
+      resp
+      # if resp["isBase64Encoded"]
+      #   puts resp["body"]
+      #   "test"
+      #   # exit
+      # else
+      #   resp
+      # end
     end
 
     delegate :headers, to: :request
