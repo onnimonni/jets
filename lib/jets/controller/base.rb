@@ -31,9 +31,9 @@ class Jets::Controller
       Jets.logger.info "base controller resp[\"isBase64Encoded\"]: #{resp["isBase64Encoded"].inspect}"
       Jets.logger.info "base controller resp: #{resp.inspect}"
       if resp["isBase64Encoded"]
-        resp
-      else
         resp["body"]
+      else
+        resp
       end
     end
 
