@@ -13,6 +13,13 @@ module Jets::Controller::Renderers
     def render
       setup_action_controller # setup only when necessary
 
+      puts "render_options #{render_options.inspect}"
+
+      # if render_options[:raw]
+      #   return render_options[:raw]
+      #   # shortcut rendering entirely
+      # end
+
       # Rails rendering does heavy lifting
       renderer = ActionController::Base.renderer.new(renderer_options)
       body = renderer.render(render_options)

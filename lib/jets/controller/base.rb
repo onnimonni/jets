@@ -28,7 +28,11 @@ class Jets::Controller
       took = Time.now - t1
       Jets.logger.info "Completed Status Code #{resp["statusCode"]} in #{took}s"
 
-      resp
+      if resp["isBase64Encoded"]
+        resp
+      else
+        resp["body"]
+      end
     end
 
     delegate :headers, to: :request
