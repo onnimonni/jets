@@ -28,6 +28,8 @@ class Jets::Controller
       took = Time.now - t1
       Jets.logger.info "Completed Status Code #{resp["statusCode"]} in #{took}s"
 
+      Jets.logger.info "base controller resp[\"isBase64Encoded\"]: #{resp["isBase64Encoded"].inspect}"
+      Jets.logger.info "base controller resp: #{resp.inspect}"
       if resp["isBase64Encoded"]
         resp
       else
