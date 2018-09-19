@@ -34,6 +34,15 @@ class Jets::Cfn::Builders
 
       deployment = Jets::Resource::ApiGateway::Deployment.new
       add_output("RestApiUrl", Value: deployment.outputs["RestApiUrl"])
+
+      add_custom_domain
+    end
+
+    def add_custom_domain
+      return unless Jets.config.custom_domain
+
+      rest_api = Jets::Resource::ApiGateway::CustomDomain.new
+      add_resource(rest_api)
     end
 
     # Adds route related Resources and Outputs

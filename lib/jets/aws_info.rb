@@ -28,7 +28,7 @@ module Jets
 
     # aws sts get-caller-identity
     def account
-      return '123456789' if test?
+      return '123456789' #if test?
       sts.get_caller_identity.account
     end
     memoize :account

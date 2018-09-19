@@ -3,6 +3,7 @@ require "aws-sdk-cloudwatchlogs"
 require "aws-sdk-lambda"
 require "aws-sdk-s3"
 require "aws-sdk-sts"
+require "aws-sdk-route53"
 # Not used in Jets internally but convenient for shared resources
 require "aws-sdk-sns"
 
@@ -45,4 +46,9 @@ module Jets::AwsServices
     Aws::SNS::Client.new
   end
   memoize :sns
+
+  def r53
+    Aws::Route53::Client.new
+  end
+  memoize :r53
 end

@@ -12,6 +12,7 @@ Events | To create the CloudWatch Event Rules for jobs.
 IAM | To create IAM roles to be associated with the Lambda functions.
 Lambda | To prewarm the application upon deployment completion.
 Logs | To clean up CloudWatch logs when deleting the application.
+Route53 | To lookup the route53 zone info and update API Gateway custom domains.
 S3 | To upload code to s3.
 
 ## Instructions
@@ -36,6 +37,8 @@ Here's a summary of the commands:
                     "iam:*",
                     "lambda:*",
                     "logs:*",
+                    "route53:get*",
+                    "route53:list*",
                     "s3:*"
                  ],
                 "Resource": [
