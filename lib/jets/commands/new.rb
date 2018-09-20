@@ -22,6 +22,8 @@ module Jets::Commands
     end
 
     def set_api_mode
+      @database_name = project_name.underscore
+
       # options is a frozen hash by Thor so cannot modify it.
       # Also had trouble unfreezing it with .dup. So using instance variables instead
       if options[:api]
